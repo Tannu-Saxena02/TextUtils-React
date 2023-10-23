@@ -21,47 +21,46 @@ function App() {
     }, 1500);
   };
   const toggleMode = () => {
-    if (mode === "light") {
-      setMode("dark");
-      document.body.style.backgroundColor = "#042743";
-      setAlertDialog("Dark Mode has been enabled", "success");
-      document.title = "TextUtils - DarkMode";
-    } else {
+    if (mode === "dark") {
       setMode("light");
       document.body.style.backgroundColor = "white";
       setAlertDialog("Light Mode has been enabled", "success");
       document.title = "TextUtils - LightMode";
+    } else {
+      setMode("dark");
+      document.body.style.backgroundColor = "#042743";
+      setAlertDialog("Dark Mode has been enabled", "success");
+      document.title = "TextUtils - DarkMode";
     }
   };
 
   // let name="Tannu";
   return (
-    //JSX fragment and JSX
-    //basicallly html with embedded js class->className,for->htmlFor,tabindex=>tabIndex
-    // <Routes>
-    //   <div className="container">
-    //     {/* <Switch>
-    //   </Switch> */}
-    //     <Route path="/about">
-    //       <About />
-    //     </Route>
-    //     <Route path="/">
-    //       <TextForm mode={mode} alert={setAlertDialog} />
-    //     </Route>
-    //   </div>
-    // </Routes>
-    <BrowserRouter>
-    {/* // ======================= use exact for exact matching of the router path======================
+    <>
+      {/* <div>
+        <Navbar mode={mode} toggleMode={toggleMode} />
+        <Alert alert={alert} />
+        <TextForm mode={mode} alert={setAlertDialog} />
+      </div> */}
+      {/* //JSX fragment and JSX
+    //basicallly html with embedded js class->className,for->htmlFor,tabindex=>tabIndex */}
+
+      {/* // ======================= use exact for exact matching of the router path======================
     /users=>component1
     /users/home=>component2*/}
-      <Navbar mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert} />
-    <Routes>
-        <Route exact path="/" element={<TextForm mode={mode} alert={setAlertDialog} />} />
-      <Route exact path="/about" element={<About/>}>
-      </Route>
-    </Routes>
-  </BrowserRouter>
+      <BrowserRouter>
+          <Navbar mode={mode} toggleMode={toggleMode} />
+        <Alert alert={alert} />
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={<TextForm mode={mode} alert={setAlertDialog} />}
+          />
+          <Route exact path="/about" element={<About  mode={mode}/>}></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
