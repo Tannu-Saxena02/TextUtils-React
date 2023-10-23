@@ -52,9 +52,10 @@ function App() {
           <Navbar mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
         <Routes>
+      
           <Route
             exact
-            path="/"
+            path="/Home"
             element={<TextForm mode={mode} alert={setAlertDialog} />}
           />
           <Route exact path="/about" element={<About  mode={mode}/>}></Route>
