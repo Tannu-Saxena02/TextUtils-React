@@ -6,7 +6,7 @@ export default function Navbar(props) {
   return (
     //props are read only
     <nav
-      className={`navbar navbar-expand-lg bg-${props.mode} navbar-${props.mode}`}
+      className={`navbar navbar-expand-lg fixed-top  bg-${props.mode} navbar-${props.mode}`}
     >
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
